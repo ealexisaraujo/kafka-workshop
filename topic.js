@@ -1,3 +1,4 @@
+//const Kafka = require("kafkajs").Kafka
 const { Kafka } = require('kafkajs');
 
 run();
@@ -7,11 +8,12 @@ async function run() {
       clientId: 'myapp',
       brokers: ['0.0.0.0:9092'],
     });
+
     const admin = kafka.admin();
-    console.log('Connecting');
+    console.log('Connecting.....');
     await admin.connect();
-    console.log('Connected');
-    //A-M
+    console.log('Connected!');
+    //A-M, N-Z
     await admin.createTopics({
       topics: [
         {
@@ -20,10 +22,10 @@ async function run() {
         },
       ],
     });
-    console.log('Created successfully!');
+    console.log('Created Successfully!');
     await admin.disconnect();
-  } catch (error) {
-    console.log(error);
+  } catch (ex) {
+    console.error(`Something bad happened ${ex}`);
   } finally {
     process.exit(0);
   }

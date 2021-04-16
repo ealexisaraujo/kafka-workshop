@@ -9,7 +9,7 @@ async function run() {
       brokers: ['0.0.0.0:9092'],
     });
 
-    const consumer = kafka.consumer({ groupId: 'GroupA' });
+    const consumer = kafka.consumer({ groupId: 'test' });
     console.log('Connecting.....');
     await consumer.connect();
     console.log('Connected!');
